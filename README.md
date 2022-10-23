@@ -65,7 +65,7 @@ Author: James Clear
 
 Genre: Self-help book
 
-Summary: An atomic habit is a regular practice or routine that is not only small and easy to do but is also the source of incredible power; a component of the system of compound growth. more...  
+Summary: An atomic habit is a regular practice or routine that is not only small and easy to do but is also the source of incredible power; a component of the system of compound growth. (more...)  
 
 1.2  
 **Given** a feed of book data is available  
@@ -99,7 +99,7 @@ As a user, I want to look up authors so that I can learn more about them and get
 
 Author: J. K. Rowling
 
-Bio: J.K. Rowling is the famous British author of the worldwide attention gaining Harry Potter series. Her best-selling novels have sold more than 400 million copies and won numerous awards. The books have also been adapted to screen in a series of blockbuster films.  more...
+Bio: J.K. Rowling is the famous British author of the worldwide attention gaining Harry Potter series. Her best-selling novels have sold more than 400 million copies and won numerous awards. The books have also been adapted to screen in a series of blockbuster films. (more...)
 
 List of books to choose:
 1) Harry Potter Series
