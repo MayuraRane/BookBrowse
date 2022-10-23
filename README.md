@@ -51,7 +51,7 @@ Author: James Clear
 
 Genre: Self-help book
 
-Description: Summary of book  
+Summary: An atomic habit is a regular practice or routine that is not only small and easy to do but is also the source of incredible power; a component of the system of compound growth. more...  
 
 1.2  
 **Given** a feed of book data is available  
@@ -70,13 +70,12 @@ Description: Summary of book
 
 ### Requirement 2: Search for Author and get books
 
-### Scenario
+#### Scenario
 
 As a user, I want to look up authors so that I can learn more about them and acquire a list of their published works so I can read more (perhaps because I liked one of their novels or books).
 
-#### Examples
+#### Example
 
-2.1
 **Given** a feed of author data is available
 
 **When** I search for "J. K. Rowling"
@@ -94,22 +93,29 @@ List of books to choose:
 4) Fantastic Beasts and Where to Find Them
 Etc.
 
-2.2
-**Given** a feed of author data is available
+### Requirement 3 : Top 10 books of a genre
 
-**When** I search for "Dan Brown"
+#### Scenario:
+
+As a user, I want to be able to view top 10 list from a genre
+
+#### Example
+
+**Given** a feed of Genre categorization is available in the data
+
+**When** I search for "Thriller"
 
 **Then** I should receive:
 
-Author: Dan Brown
+Top 10 books from Thriller:
 
-Bio: Dan Brown is the author of numerous #1 bestselling novels, including The Da Vinci Code, which has become one of the best selling novels of all time as well as the subject of intellectual debate among readers and scholars. Brown’s novels are published in 56 languages around the world with over 200 million copies in print. more...
-
-List of Books to choose:
-1) Da Vinci Code
-2) Angels and Demons
-3) Inferno
-Etc.
+1) Gone Girl
+2) The Silent Patient
+3) Verity
+.
+.
+.
+10) The Girl on the Train
 
 ### Requirement 4 : New Releases published on Home page
 
