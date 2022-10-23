@@ -138,6 +138,19 @@ Top 10 books from Thriller:
 
 As a User, I want to be able to view list of newly released books on the homepage.
 
+**Given** New Release for books is available
+
+**When** I search for "New Release"
+
+**Then** I should receive:
+
+New Releases are :
+
+1) The Vanishing Half by Brit Bennett
+2) Breath: The Science of a Lost Art by James Nestor
+3) The Extraordinary Life of Sam Hell by Robert DugoniVerity
+4) ...
+
 ### Requirement 5 : Post reviews and ratings
 
 #### Scenario:
