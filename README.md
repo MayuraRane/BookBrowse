@@ -9,7 +9,7 @@ Book Club is a goto website for passionate readers. We have a wide-range of coll
 Our services include:
 	- Choose the next book you're going to read
 	- Search from a range of genres or by authors you follow
-  - Simplify your search if you know the ISBN
+  	- Simplify your search if you know the ISBN
 
 ## Data Feeds
 [Goodreads API](https://www.goodreads.com/api)
