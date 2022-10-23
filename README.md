@@ -22,15 +22,15 @@ Our services include:
 
 IMG1: Home Page 
 
-![Desktop-View](./Images/HomePage.png)
+<img src="./Images/HomePage.png" width="500">
 
 IMG2: New Releases
 
-![Desktop-View](./Images/NewReleases.png)
+<img src="./Images/NewReleases.png" width="500">
 
 IMG3: Author Page
 
-![Desktop-View](./Images/Author.png)
+<img src="./Images/Author.png" width="500">
 
 ## Functional Requirements
 
