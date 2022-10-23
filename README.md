@@ -80,7 +80,7 @@ Author: James Clear
 
 Genre: Self-help book
 
-Summary: An atomic habit is a regular practice or routine that is not only small and easy to do but is also the source of incredible power; a component of the system of compound growth. more...  
+Summary: An atomic habit is a regular practice or routine that is not only small and easy to do but is also the source of incredible power; a component of the system of compound growth. (more...)  
 
 ### Requirement 2: Search for Author and get books
 
@@ -149,7 +149,7 @@ New Releases are :
 1) The Vanishing Half by Brit Bennett
 2) Breath: The Science of a Lost Art by James Nestor
 3) The Extraordinary Life of Sam Hell by Robert DugoniVerity
-4) ...
+4) ... Etc.
 
 ### Requirement 5 : Post reviews and ratings
 
