@@ -4,7 +4,7 @@
 
 ## Introduction 
 
-Book Club is a goto website for passionate readers. We have a wide-range of collection for readers who'd like to choose what their next book is going to be. We enable readers to choose from a list of genres, search by ISBN or author. 
+BOOKBROWSE is a goto website for passionate readers. We have a wide-range of collection for readers who'd like to choose what their next book is going to be. We enable readers to choose from a list of genres, search by ISBN or author. 
 
 Our services include:
 	- Choose the next book you're going to read
@@ -66,13 +66,13 @@ Author: James Clear
 
 Genre: Self-help book
 
-Description: Summary of book  
+Summary: An atomic habit is a regular practice or routine that is not only small and easy to do but is also the source of incredible power; a component of the system of compound growth. more...  
 
 ### Requirement 2: Search for Author and get books
 
 #### Scenario
 
-As a user, I want to look up authors so that I can learn more about them and acquire a list of their published works so I can read more (perhaps because I liked one of their novels or books).
+As a user, I want to look up authors so that I can learn more about them and get a list of their published works so I can read more (perhaps because I liked one of their novels or books).
 
 #### Example
 
@@ -101,7 +101,7 @@ As a user, I want to be able to view top 10 list from a genre
 
 #### Example
 
-**Given** a feed of Genre categorization is available in the data
+**Given** Genre categorization for books is available
 
 **When** I search for "Thriller"
 
@@ -118,9 +118,23 @@ Top 10 books from Thriller:
 
 ### Requirement 4 : New Releases published on Home page
 
-### Scenario:
+#### Scenario:
 
-As a User, I want to be able to view list of newly released books on the homepage so that I can get to know new books available.
+As a User, I want to be able to view list of newly released books on the homepage.
+
+### Requirement 5 : Post reviews and ratings
+
+#### Scenario:
+
+As a User, I want to post reviews and ratings for the book
+
+#### Assumptions
+
+A form is available to fill in the review for the book
+
+
+
+
 
 ## Team Members
 
