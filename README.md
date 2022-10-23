@@ -21,23 +21,24 @@ Our services include:
 
 ## Functional Requirements
 
-### Requirement 100.0: Search for Books
+#### Assumptions
+
+English is the only language used for all searches.
+
+#### Dependencies
+
+1) Book Information is available
+2) Author Information is available
+
+### Requirement 1: Search for Books
 
 #### Scenario
 
 As a user interested in books, I want to be able to search for based on any part of the name or the ISBN and get information about the book
-
-#### Dependencies
-
-Book information is available
-
-#### Assumptions
-
-All book names are stated in English 
  
 #### Examples
-1.1  
 
+1.1  
 **Given** a feed of book data is available  
 
 **When** I search for “Atomic Habits”  
@@ -67,7 +68,56 @@ Genre: Self-help book
 
 Description: Summary of book  
 
+### Requirement 2: Search for Author and get books
 
+### Scenario
+
+As a user, I want to look up authors so that I can learn more about them and acquire a list of their published works so I can read more (perhaps because I liked one of their novels or books).
+
+#### Examples
+
+2.1
+**Given** a feed of author data is available
+
+**When** I search for "J. K. Rowling"
+
+**Then** I should receive:
+
+Author: J. K. Rowling
+
+Bio: J.K. Rowling is the famous British author of the worldwide attention gaining Harry Potter series. Her best-selling novels have sold more than 400 million copies and won numerous awards. The books have also been adapted to screen in a series of blockbuster films.  more...
+
+List of books to choose:
+1) Harry Potter Series
+2) The Casual Vacancy
+3) The Christmas Pig
+4) Fantastic Beasts and Where to Find Them
+Etc.
+
+2.2
+**Given** a feed of author data is available
+
+**When** I search for "Dan Brown"
+
+**Then** I should receive:
+
+Author: Dan Brown
+
+Bio: Dan Brown is the author of numerous #1 bestselling novels, including The Da Vinci Code, which has become one of the best selling novels of all time as well as the subject of intellectual debate among readers and scholars. Brown’s novels are published in 56 languages around the world with over 200 million copies in print. more...
+
+List of Books to choose:
+1) Da Vinci Code
+2) Angels and Demons
+3) Inferno
+Etc.
+
+### Requirement 4 : New Releases published on Home page
+
+### Scenario:
+
+As a User, I want to be able to view list of newly released books on the homepage so that I can get to know new books available.
+
+## Team Members
 
 - Vamsi Kalepu
 - Mayura Rane
