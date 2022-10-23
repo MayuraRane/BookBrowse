@@ -18,6 +18,16 @@ Our services include:
 
 [Amazon Best Selling Books Dataset](https://www.kaggle.com/datasets/sootersaalu/amazon-top-50-bestselling-books-2009-2019)
 
+## Storyboard
+
+Home Page:
+![Desktop-View](./Images/HomePage.png)
+
+New Releases Page:
+![Desktop-View](./Images/NewReleases.png)
+
+Author Page:
+![Desktop-View](./Images/Author.png)
 
 ## Functional Requirements
 
