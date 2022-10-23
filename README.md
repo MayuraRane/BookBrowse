@@ -85,7 +85,7 @@ Summary: An atomic habit is a regular practice or routine that is not only small
 ### Requirement 2: Search for Author and get books
 
 #### Scenario
--->Refer IMG2
+-->Refer IMG3
 
 As a user, I want to look up authors so that I can learn more about them and get a list of their published works so I can read more (perhaps because I liked one of their novels or books).
 
@@ -134,7 +134,7 @@ Top 10 books from Thriller:
 ### Requirement 4 : New Releases published on Home page
 
 #### Scenario:
--->Refer IMG3
+-->Refer IMG2
 
 As a User, I want to be able to view list of newly released books on the homepage.
 
