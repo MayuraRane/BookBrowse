@@ -68,8 +68,6 @@ Genre: Self-help book
 Description: Summary of book  
 
 
-**Then** when I navigate to the Specimen History view, I should see at least one Malus domestica ‘Fuji’ specimen with the a photo of a Fuji apple seedling.  
-## Team Members
 
 - Vamsi Kalepu
 - Mayura Rane
