@@ -113,10 +113,8 @@ Top 10 books from Thriller:
 2) The Silent Patient
 3) Verity
 4) 
-.
-.
-.
-10) The Girl on the Train
+..
+10. The Girl on the Train
 
 ### Requirement 4 : New Releases published on Home page
 
