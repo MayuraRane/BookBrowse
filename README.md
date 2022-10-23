@@ -173,12 +173,18 @@ A form is available to fill in the review for the book
 
 ## Team Members
 
-- Vamsi Kalepu
-- Mayura Rane
-- Monica Varu
-- Sandeep Susarla
+- Scrum Master: Vamsi Kalepu
+- Frontend Developer: Mayura Rane
+- Integration Developer: Monica Varu
+- Backend Developer: Sandeep Susarla
 
 ## Weekly Meeting
 
-Monday at 7 PM on Teams
+Monday at 7 PM on Zoom:
+
+Join Zoom Meeting
+https://us04web.zoom.us/j/7451703028?pwd=YjlHNUNPRkpwZmh2cFdWMldZeXZ6UT09
+
+Meeting ID: 745 170 3028
+Passcode: zM0hH6
 
