@@ -112,9 +112,8 @@ Top 10 books from Thriller:
 1) Gone Girl
 2) The Silent Patient
 3) Verity
-4) 
-..
-10. The Girl on the Train
+4) ...
+10) The Girl on the Train
 
 ### Requirement 4 : New Releases published on Home page
 
