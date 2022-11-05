@@ -12,6 +12,7 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     <table>
         <tr>
+            <th>Image:</th>
             <th>Title:</th>
             <th>Author:</th>
             <th>Description:</th>
@@ -25,7 +26,7 @@
                     authors1 = authors1 + " " + x;
                 }
                 <tr>
-                    
+                    <td><img src="@book.VolumeInfo.ImageLinks.Thumbnail" alt="MyImg"/></td>
                     <td>@book.VolumeInfo.Title</td>
                     <td>@authors1</td>
                     <td>@book.VolumeInfo.Description</td>
