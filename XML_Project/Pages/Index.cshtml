@@ -1,10 +1,37 @@
 ﻿@page
+@using MyBooks
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    BooksInfo books = (BooksInfo)ViewData["BooksInfo"];
+    
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table>
+        <tr>
+            <th>Title:</th>
+            <th>Author:</th>
+            <th>Description:</th>
+        </tr>
+        @{
+            foreach (Item book in books.Items)
+            {
+                var authors1 = "";
+                foreach(var x in @book.VolumeInfo.Authors)
+                {
+                    authors1 = authors1 + " " + x;
+                }
+                <tr>
+                    
+                    <td>@book.VolumeInfo.Title</td>
+                    <td>@authors1</td>
+                    <td>@book.VolumeInfo.Description</td>
+                </tr>
+            }
+            
+        }
+    </table>
 </div>
