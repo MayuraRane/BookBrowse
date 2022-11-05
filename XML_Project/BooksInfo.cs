@@ -228,7 +228,7 @@ namespace MyBooks
 
     public enum Saleability { NotForSale, ForSale };
 
-    public enum Category { AdventureFiction, Fiction, Drama, Bedandbreakfastaccommodations, YoungAdultFiction};
+    public enum Category { AdventureFiction, Fiction, Drama, Bedandbreakfastaccommodations, YoungAdultFiction, Cooking, Computers, BodyMindSpirit, BusinessEconomics, FamilyRelationships, BiographyAutobiography, Gardening, SocialScience };
 
     public enum TypeEnum { Isbn10, Isbn13, Other };
 
@@ -536,6 +536,23 @@ namespace MyBooks
                     return Category.YoungAdultFiction;
                 case "Bed and breakfast accommodations":
                     return Category.Bedandbreakfastaccommodations;
+                case "Cooking":
+                    return Category.Cooking;
+                case "Computers":
+                    return Category.Computers;
+                case "Body, Mind & Spirit":
+                    return Category.BodyMindSpirit;
+                case "Business & Economics":
+                    return Category.BusinessEconomics;
+                case "Family & Relationships":
+                    return Category.FamilyRelationships;
+                case "Biography & Autobiography":
+                    return Category.BiographyAutobiography;
+                case "Gardening":
+                    return Category.Gardening;
+                case "Social Science":
+                    return Category.SocialScience;
+
             }
             throw new Exception("cannot unmarshal type category");
             //return value;
@@ -565,6 +582,30 @@ namespace MyBooks
                     return;
                 case Category.Bedandbreakfastaccommodations:
                     serializer.Serialize(writer, "Bed and breakfast accommodations");
+                    return;
+                case Category.Cooking:
+                    serializer.Serialize(writer, "Cooking");
+                    return;
+                case Category.Computers:
+                    serializer.Serialize(writer, "Computers");
+                    return;
+                case Category.BodyMindSpirit:
+                    serializer.Serialize(writer, "Body, Mind & Spirit");
+                    return;
+                case Category.FamilyRelationships:
+                    serializer.Serialize(writer, "Family & Relationships");
+                    return;
+                case Category.BusinessEconomics:
+                    serializer.Serialize(writer, "Business & Economics");
+                    return;
+                case Category.BiographyAutobiography:
+                    serializer.Serialize(writer, "Biography & Autobiography");
+                    return;
+                case Category.Gardening:
+                    serializer.Serialize(writer, "Gardening");
+                    return;
+                case Category.SocialScience:
+                    serializer.Serialize(writer, "Social Science");
                     return;
             }
             throw new Exception("Cannot marshal type Category");
