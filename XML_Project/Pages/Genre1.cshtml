@@ -1,0 +1,36 @@
+﻿@page
+@using MyBooks
+@model XML_Project.Pages.Genre1Model
+@{
+    ViewData["Title"] = "Thriller";
+    BooksInfo books = (BooksInfo)ViewData["BooksInfo"];
+}
+
+<div class="text-center">
+    <h1 class="display-4">Best thrillers of all time</h1>
+    <p>Thriller</p>
+    <table>
+        <tr>
+            <th>Title:</th>
+            <th>Author:</th>
+            <th>Description:</th>
+        </tr>
+        @{
+            foreach (Item book in books.Items)
+            {
+                var authors1 = "";
+                foreach (var x in @book.VolumeInfo.Authors)
+                {
+                    authors1 = authors1 + " " + x;
+                }
+                <tr>
+
+                    <td>@book.VolumeInfo.Title</td>
+                    <td>@authors1</td>
+                    <td>@book.VolumeInfo.Description</td>
+                </tr>
+            }
+
+        }
+    </table>
+</div>
