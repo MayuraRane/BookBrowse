@@ -228,7 +228,7 @@ namespace MyBooks
 
     public enum Saleability { NotForSale, ForSale };
 
-    public enum Category { AdventureFiction, Fiction };
+    public enum Category { AdventureFiction, Fiction, Drama, Bedandbreakfastaccommodations, YoungAdultFiction};
 
     public enum TypeEnum { Isbn10, Isbn13, Other };
 
@@ -530,6 +530,12 @@ namespace MyBooks
                     return Category.AdventureFiction;
                 case "Fiction":
                     return Category.Fiction;
+                case "Drama":
+                    return Category.Drama;
+                case "Young Adult Fiction":
+                    return Category.YoungAdultFiction;
+                case "Bed and breakfast accommodations":
+                    return Category.Bedandbreakfastaccommodations;
             }
             throw new Exception("cannot unmarshal type category");
             //return value;
@@ -550,6 +556,15 @@ namespace MyBooks
                     return;
                 case Category.Fiction:
                     serializer.Serialize(writer, "Fiction");
+                    return;
+                case Category.YoungAdultFiction:
+                    serializer.Serialize(writer, "Young Adult Fiction");
+                    return;
+                case Category.Drama:
+                    serializer.Serialize(writer, "Drama");
+                    return;
+                case Category.Bedandbreakfastaccommodations:
+                    serializer.Serialize(writer, "Bed and breakfast accommodations");
                     return;
             }
             throw new Exception("Cannot marshal type Category");

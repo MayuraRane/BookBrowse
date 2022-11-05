@@ -1,0 +1,39 @@
+﻿@page
+@using MyBooks
+@model XML_Project.Pages.Genre3Model
+
+
+@{
+    ViewData["Title"] = "Romance";
+    BooksInfo books = (BooksInfo)ViewData["BooksInfo"];
+}
+
+<div class="text-center">
+    <h1 class="display-4">Best Romance Novels of All time</h1>
+    <p>Romance Books</p>
+    <table>
+        <tr>
+            <th>Image:</th>    
+            <th>Title:</th>
+            <th>Author:</th>
+            <th>Description:</th>
+        </tr>
+        @{
+            foreach (Item book in books.Items)
+            {
+                var authors1 = "";
+                foreach (var x in @book.VolumeInfo.Authors)
+                {
+                    authors1 = authors1 + " " + x;
+                }
+                <tr>
+                    <td><img src="@book.VolumeInfo.ImageLinks.Thumbnail" alt="MyImg"/></td>
+                    <td>@book.VolumeInfo.Title</td>
+                    <td>@authors1</td>
+                    <td>@book.VolumeInfo.Description</td>
+                </tr>
+            }
+
+        }
+    </table>
+</div>
