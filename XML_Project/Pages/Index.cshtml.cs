@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MyBooks;
+using MyBooksBestSellers;
 using Newtonsoft.Json;
 
 namespace XML_Project.Pages
@@ -20,19 +20,19 @@ namespace XML_Project.Pages
         public void OnGet()
         {
             
-            var task = client.GetAsync($"https://www.googleapis.com/books/v1/volumes?q=subject:thriller");
+            var task = client.GetAsync($"https://api.nytimes.com/svc/books/v3/lists/current/combined-print-and-e-book-fiction.json?api-key=9HUdSuV0N5BHY93RrWkP48aDrVztk4PL");
             
             HttpResponseMessage result =  task.Result;
             //List<BooksInfo> books = new List<BooksInfo>();
-            BooksInfo books = new BooksInfo();
+            BestSellers bs_books = new BestSellers();
             if (result.IsSuccessStatusCode)
             {
                 Task<string> readString = result.Content.ReadAsStringAsync();
                 string jsonString = readString.Result;
              
-                books = BooksInfo.FromJson(jsonString);
+                bs_books = BestSellers.FromJson(jsonString);
             }
-            ViewData["BooksInfo"] = books;
+            ViewData["BestSellers"] = bs_books;
 
         }
     }

@@ -1,35 +1,35 @@
 ﻿@page
-@using MyBooks
+@using MyBooksBestSellers
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-    BooksInfo books = (BooksInfo)ViewData["BooksInfo"];
+    BestSellers books = (BestSellers)ViewData["BestSellers"];
     
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>NY Times Best Selling Books for Fiction</p>
     <table>
         <tr>
-            <th>Image:</th>
-            <th>Title:</th>
-            <th>Author:</th>
-            <th>Description:</th>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Description</th>
         </tr>
         @{
-            foreach (Item book in books.Items)
+            foreach (Book book in books.Results.Books)
             {
                 var authors1 = "";
-                foreach(var x in @book.VolumeInfo.Authors)
+                foreach(var x in @book.Author)
                 {
                     authors1 = authors1 + " " + x;
                 }
                 <tr>
-                    <td><img src="@book.VolumeInfo.ImageLinks.Thumbnail" alt="MyImg"/></td>
-                    <td>@book.VolumeInfo.Title</td>
+                    <td><img src="@book.BookImage" alt="MyImg"/></td>
+                    <td>@book.Title</td>
                     <td>@authors1</td>
-                    <td>@book.VolumeInfo.Description</td>
+                    <td>@book.Description</td>
                 </tr>
             }
             
