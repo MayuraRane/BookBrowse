@@ -15,7 +15,15 @@ html {
 
 body {
   margin-bottom: 60px;
+  
 }
 .desp{
-text-align:left
+text-align:left;
+}
+.Welcome {
+    padding-top: 20%;
+    color: #06253E;
+}
+.index-table1{
+    font-family:'Arial Rounded MT'
 }

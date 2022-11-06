@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <None Include="wwwroot\Images\BookBrowse_Logo.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Images\" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
 </Project>

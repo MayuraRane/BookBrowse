@@ -6,12 +6,34 @@
     BestSellers books = (BestSellers)ViewData["BestSellers"];
     
 }
+<head>
+    <link rel="stylesheet" href="site.css">
+</head>
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <img src="https://github.com/MayuraRane/XML_Project/blob/master/Images/Author.png" alt="BookBrowse" width="400" height="400" />
-    <p>NY Times Best Selling Books for Fiction</p>
-    <table>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col">
+
+                <img src="/Images/BookBrowse_Logo.jpg" alt="BookBrowse" width="300" height="400" />
+
+            </div>
+
+            <div class="col">
+
+                <h1 class="Welcome">Welcome to BookBrowse!</h1>
+                <h3>What are you reading next?</h3>
+                <h3>Let's browse..</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+    <h2>NY Times Best Selling Books for Fiction</h2></br>
+    <table class="index-table1">
         <tr>
             <th>Image</th>
             <th>Title</th>
@@ -24,7 +46,7 @@
                 var authors1 = "";
                 foreach(var x in @book.Author)
                 {
-                    authors1 = authors1 + " " + x;
+                    authors1 = authors1 + x;
                 }
                 <tr>
                     <td><img src="@book.BookImage" alt="MyImg"/></td>
