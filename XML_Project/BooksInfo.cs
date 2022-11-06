@@ -14,6 +14,7 @@ namespace MyBooks
     using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+    using static System.Collections.Specialized.BitVector32;
 
     public partial class BooksInfo
     {
@@ -228,7 +229,7 @@ namespace MyBooks
 
     public enum Saleability { NotForSale, ForSale };
 
-    public enum Category { AdventureFiction, Fiction, Drama, Bedandbreakfastaccommodations, YoungAdultFiction, Cooking, Computers, BodyMindSpirit, BusinessEconomics, FamilyRelationships, BiographyAutobiography, Gardening, SocialScience };
+    public enum Category { AdventureFiction, Fiction, JuvenileFiction, Drama, Bedandbreakfastaccommodations, YoungAdultFiction, Cooking, Computers, BodyMindSpirit, BusinessEconomics, FamilyRelationships, BiographyAutobiography, Gardening, SocialScience };
 
     public enum TypeEnum { Isbn10, Isbn13, Other };
 
@@ -530,6 +531,8 @@ namespace MyBooks
                     return Category.AdventureFiction;
                 case "Fiction":
                     return Category.Fiction;
+                case "Juvenile Fiction":
+                    return Category.JuvenileFiction;
                 case "Drama":
                     return Category.Drama;
                 case "Young Adult Fiction":
@@ -573,6 +576,9 @@ namespace MyBooks
                     return;
                 case Category.Fiction:
                     serializer.Serialize(writer, "Fiction");
+                    return;
+                case Category.JuvenileFiction:
+                    serializer.Serialize(writer, "Juvenile Fiction");
                     return;
                 case Category.YoungAdultFiction:
                     serializer.Serialize(writer, "Young Adult Fiction");
