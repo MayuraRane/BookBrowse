@@ -6,32 +6,56 @@
     BooksInfo books = (BooksInfo)ViewData["BooksInfo"];
 }
 
-<div class="text-center">
-    <h1 class="display-4">Best thrillers of all time</h1>
-    <p>Thriller</p>
-    <table>
-        <tr>
-            <th>Image:</th>    
-            <th>Title:</th>
-            <th>Author:</th>
-            <th>Description:</th>
-        </tr>
-        @{
-            foreach (Item book in books.Items)
-            {
-                var authors1 = "";
-                foreach (var x in @book.VolumeInfo.Authors)
-                {
-                    authors1 = authors1 + " " + x;
-                }
-                <tr>
-                    <td><img src="@book.VolumeInfo.ImageLinks.Thumbnail" alt="MyImg"/></td>
-                    <td>@book.VolumeInfo.Title</td>
-                    <td>@authors1</td>
-                    <td>@book.VolumeInfo.Description</td>
-                </tr>
-            }
 
-        }
+
+<head>
+    <link rel="stylesheet" href="site.css">
+</head>
+
+<div class="text-center">
+    <h1 class="display-4">Best Thrillers of All Time</h1>
+    <p>Thriller Books</p>
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+            <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (Item book in books.Items)
+                {
+                    var authors1 = "";
+                    foreach (var x in @book.VolumeInfo.Authors)
+                    {
+                        authors1 = authors1 + " " + x;
+                    }
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="@book.VolumeInfo.ImageLinks.Thumbnail" alt="MyImg" />
+                                <div class="ms-3">
+                                </div>
+                            </div>
+                        </td>
+
+
+                        <td>@book.VolumeInfo.Title</td>
+                        <td>@authors1</td>
+                        <td class="desp">
+                            @book.VolumeInfo.Description
+                        </td>
+
+
+                    </tr>
+
+                }
+
+            }
+        </tbody>
     </table>
 </div>
+
