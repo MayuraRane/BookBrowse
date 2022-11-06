@@ -229,7 +229,7 @@ namespace MyBooks
 
     public enum Saleability { NotForSale, ForSale };
 
-    public enum Category { AdventureFiction, Fiction, JuvenileFiction, Drama, Bedandbreakfastaccommodations, YoungAdultFiction, Cooking, Computers, BodyMindSpirit, BusinessEconomics, FamilyRelationships, BiographyAutobiography, Gardening, SocialScience };
+    public enum Category { Art, AdventureFiction, Fiction, JuvenileFiction, Drama, Bedandbreakfastaccommodations, YoungAdultFiction, Cooking, Computers, BodyMindSpirit, BusinessEconomics, FamilyRelationships, BiographyAutobiography, Gardening, SocialScience };
 
     public enum TypeEnum { Isbn10, Isbn13, Other };
 
@@ -527,6 +527,8 @@ namespace MyBooks
             var value = serializer.Deserialize<string>(reader);
             switch (value)
             {
+                case "Art":
+                    return Category.Art;
                 case "Adventure fiction":
                     return Category.AdventureFiction;
                 case "Fiction":
@@ -571,6 +573,9 @@ namespace MyBooks
             var value = (Category)untypedValue;
             switch (value)
             {
+                case Category.Art:
+                    serializer.Serialize(writer, "Art");
+                    return;
                 case Category.AdventureFiction:
                     serializer.Serialize(writer, "Adventure fiction");
                     return;
