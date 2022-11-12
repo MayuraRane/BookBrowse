@@ -20,20 +20,8 @@ namespace XML_Project.Pages
         public void OnGet()
         {
 
-            var task = client.GetAsync($"https://www.googleapis.com/books/v1/volumes?q=subject:romance");
-
-            HttpResponseMessage result = task.Result;
-            //List<BooksInfo> books = new List<BooksInfo>();
-            BooksInfo books = new BooksInfo();
-            if (result.IsSuccessStatusCode)
-            {
-                Task<string> readString = result.Content.ReadAsStringAsync();
-                string jsonString = readString.Result;
-
-                books = BooksInfo.FromJson(jsonString);
-            }
+            BooksInfo books = BookUtility.GetFromURL<BooksInfo>("https://www.googleapis.com/books/v1/volumes?q=subject:romance");
             ViewData["BooksInfo"] = books;
-
         }
     }
 }
