@@ -1,0 +1,41 @@
+﻿@page
+@using MyBooks
+@model XML_Project.Pages.SearchResultModel
+@{
+	ViewData["Title"] = "Books Search";
+    var searchbooks = TempData.Get<BooksInfo>("BooksInfo");
+}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Movie Details</title>
+    </head>
+
+
+    <body id="movieResultBody">
+
+     <!-- Still working on it
+         (searchbooks.Response != "False")
+    
+        <div class="container-fluid movieResult">
+            <div class="row">
+                    <div class="col-4">
+                    
+                    </div>
+                    <div class="col-8">
+                        <h4>searchbooks.Title</h4>
+                        <h6>IMDB Rating</h6>
+                        <p>searchbooks.Author</p>
+                        
+                    </div>
+            </div>
+        </div> -->
+    }
+    else {
+        <h3>Sorry! We could not find a movie by that title.</h3>
+    }
+
+    </body>
+</html>
