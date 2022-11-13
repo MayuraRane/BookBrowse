@@ -67,13 +67,15 @@
 
     <h2>NY Times Best Selling Books for Fiction</h2>
 </br>
-    <table class="index-table1">
-        <tr>
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+           <tr>
             <th>Image</th>
             <th>Title</th>
             <th>Author</th>
             <th>Description</th>
         </tr>
+        </thead>
         @{
             foreach (Book book in books.Results.Books)
             {

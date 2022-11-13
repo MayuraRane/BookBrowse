@@ -142,7 +142,7 @@ namespace MyBooks
         public PrintType PrintType { get; set; }
 
         [JsonProperty("categories")]
-        public string Categories { get; set; }
+        public List<string> Categories { get; set; }
 
         [JsonProperty("averageRating", NullValueHandling = NullValueHandling.Ignore)]
         public double? AverageRating { get; set; }
