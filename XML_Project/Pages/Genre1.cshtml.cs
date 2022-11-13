@@ -23,7 +23,6 @@ namespace XML_Project.Pages
             var task = client.GetAsync($"https://www.googleapis.com/books/v1/volumes?q=subject:thriller");
 
             HttpResponseMessage result = task.Result;
-            //List<BooksInfo> books = new List<BooksInfo>();
             BooksInfo books = new BooksInfo();
             if (result.IsSuccessStatusCode)
             {

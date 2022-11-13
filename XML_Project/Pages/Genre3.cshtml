@@ -25,7 +25,8 @@
             </tr>
         </thead>
         <tbody>
-            @{
+            @if (books != null && books.Items.Count != 0) //Null check to avoid null pointer exception
+            {
                 foreach (Item book in books.Items)
                 {
                     var authors1 = "";
@@ -36,11 +37,8 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="@book.VolumeInfo.ImageLinks.Thumbnail" alt="MyImg"
-                           
-                                  />
-                                <div class="ms-3"> 
-
+                                <img src="@book.VolumeInfo.ImageLinks.Thumbnail" alt="MyImg" />
+                                <div class="ms-3">
                                 </div>
                             </div>
                         </td>
@@ -49,13 +47,10 @@
                         <td>@book.VolumeInfo.Title</td>
                         <td>@authors1</td>
                         <td class="desp">
-                        @book.VolumeInfo.Description</td>
-
-
+                            @book.VolumeInfo.Description
+                        </td>
                     </tr>
-
                 }
-
             }
         </tbody>
     </table>
