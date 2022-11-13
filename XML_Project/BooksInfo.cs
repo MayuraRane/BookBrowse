@@ -142,7 +142,7 @@ namespace MyBooks
         public PrintType PrintType { get; set; }
 
         [JsonProperty("categories")]
-        public List<Category> Categories { get; set; }
+        public string Categories { get; set; }
 
         [JsonProperty("averageRating", NullValueHandling = NullValueHandling.Ignore)]
         public double? AverageRating { get; set; }
@@ -229,7 +229,7 @@ namespace MyBooks
 
     public enum Saleability { NotForSale, ForSale };
 
-    public enum Category { Art, AdventureFiction, Fiction, JuvenileFiction, Drama, Bedandbreakfastaccommodations, YoungAdultFiction, Cooking, Computers, BodyMindSpirit, BusinessEconomics, FamilyRelationships, BiographyAutobiography, Gardening, SocialScience };
+    //public enum Category { Art, AdventureFiction, Fiction, JuvenileFiction, Drama, Bedandbreakfastaccommodations, YoungAdultFiction, Cooking, Computers, BodyMindSpirit, BusinessEconomics, FamilyRelationships, BiographyAutobiography, Gardening, SocialScience };
 
     public enum TypeEnum { Isbn10, Isbn13, Other };
 
@@ -272,7 +272,7 @@ namespace MyBooks
                 ViewabilityConverter.Singleton,
                 KindConverter.Singleton,
                 SaleabilityConverter.Singleton,
-                CategoryConverter.Singleton,
+                //CategoryConverter.Singleton,
                 TypeEnumConverter.Singleton,
                 LanguageConverter.Singleton,
                 MaturityRatingConverter.Singleton,
@@ -517,114 +517,8 @@ namespace MyBooks
         public static readonly SaleabilityConverter Singleton = new SaleabilityConverter();
     }
 
-    internal class CategoryConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(Category) || t == typeof(Category?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            switch (value)
-            {
-                case "Art":
-                    return Category.Art;
-                case "Adventure fiction":
-                    return Category.AdventureFiction;
-                case "Fiction":
-                    return Category.Fiction;
-                case "Juvenile Fiction":
-                    return Category.JuvenileFiction;
-                case "Drama":
-                    return Category.Drama;
-                case "Young Adult Fiction":
-                    return Category.YoungAdultFiction;
-                case "Bed and breakfast accommodations":
-                    return Category.Bedandbreakfastaccommodations;
-                case "Cooking":
-                    return Category.Cooking;
-                case "Computers":
-                    return Category.Computers;
-                case "Body, Mind & Spirit":
-                    return Category.BodyMindSpirit;
-                case "Business & Economics":
-                    return Category.BusinessEconomics;
-                case "Family & Relationships":
-                    return Category.FamilyRelationships;
-                case "Biography & Autobiography":
-                    return Category.BiographyAutobiography;
-                case "Gardening":
-                    return Category.Gardening;
-                case "Social Science":
-                    return Category.SocialScience;
-
-            }
-            throw new Exception("cannot unmarshal type category");
-            //return value;
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (Category)untypedValue;
-            switch (value)
-            {
-                case Category.Art:
-                    serializer.Serialize(writer, "Art");
-                    return;
-                case Category.AdventureFiction:
-                    serializer.Serialize(writer, "Adventure fiction");
-                    return;
-                case Category.Fiction:
-                    serializer.Serialize(writer, "Fiction");
-                    return;
-                case Category.JuvenileFiction:
-                    serializer.Serialize(writer, "Juvenile Fiction");
-                    return;
-                case Category.YoungAdultFiction:
-                    serializer.Serialize(writer, "Young Adult Fiction");
-                    return;
-                case Category.Drama:
-                    serializer.Serialize(writer, "Drama");
-                    return;
-                case Category.Bedandbreakfastaccommodations:
-                    serializer.Serialize(writer, "Bed and breakfast accommodations");
-                    return;
-                case Category.Cooking:
-                    serializer.Serialize(writer, "Cooking");
-                    return;
-                case Category.Computers:
-                    serializer.Serialize(writer, "Computers");
-                    return;
-                case Category.BodyMindSpirit:
-                    serializer.Serialize(writer, "Body, Mind & Spirit");
-                    return;
-                case Category.FamilyRelationships:
-                    serializer.Serialize(writer, "Family & Relationships");
-                    return;
-                case Category.BusinessEconomics:
-                    serializer.Serialize(writer, "Business & Economics");
-                    return;
-                case Category.BiographyAutobiography:
-                    serializer.Serialize(writer, "Biography & Autobiography");
-                    return;
-                case Category.Gardening:
-                    serializer.Serialize(writer, "Gardening");
-                    return;
-                case Category.SocialScience:
-                    serializer.Serialize(writer, "Social Science");
-                    return;
-            }
-            throw new Exception("Cannot marshal type Category");
-        }
-
-        public static readonly CategoryConverter Singleton = new CategoryConverter();
-    }
-
+    
+        
     internal class TypeEnumConverter : JsonConverter
     {
         public override bool CanConvert(Type t) => t == typeof(TypeEnum) || t == typeof(TypeEnum?);
