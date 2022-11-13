@@ -1,8 +1,0 @@
-try{
-s_a("aLUfP");
-
-
-s_b();
-
-}catch(e){_DumpException(e)}
-// Google Inc.
