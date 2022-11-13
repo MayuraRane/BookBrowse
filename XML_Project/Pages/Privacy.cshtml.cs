@@ -14,6 +14,7 @@ namespace XML_Project.Pages
 
         public void OnGet()
         {
-        }
+            throw new NotSupportedException(); // Completed the empty method by adding a not supported exception
+    }
     }
 }

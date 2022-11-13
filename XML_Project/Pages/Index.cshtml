@@ -4,37 +4,37 @@
 @{
     ViewData["Title"] = "Home page";
     BestSellers books = (BestSellers)ViewData["BestSellers"];
-    
+
 }
 <head>
     <link rel="stylesheet" href="site.css">
 </head>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-            <img src="/Images/Cover1.png" class="d-block w-100"   height = "400" alt="Cover1">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-    <div class="carousel-item">
-            <img src="/Images/Cover2.png" class="d-block w-100"  height="400"  alt="Cover2">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/Images/Cover1.png" class="d-block w-100" height="400" alt="Cover1">
+        </div>
+        <div class="carousel-item">
+            <img src="/Images/Cover2.png" class="d-block w-100" height="400" alt="Cover2">
+        </div>
+        <div class="carousel-item">
+            <img src="/Images/Cover3.png" class="d-block w-100" height="400" alt="Cover3">
+        </div>
     </div>
-    <div class="carousel-item">
-            <img src="/Images/Cover3.png" class="d-block w-100"  height="400" alt="Cover3">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
 
@@ -66,7 +66,7 @@
 
 
     <h2>NY Times Best Selling Books for Fiction</h2>
-</br>
+    <br> <!-- Added a proper tag for break -->
     <table class="index-table1">
         <tr>
             <th>Image</th>
@@ -74,22 +74,22 @@
             <th>Author</th>
             <th>Description</th>
         </tr>
-        @{
+        @if(books !=null && books.Results.Books.Count !=0){
             foreach (Book book in books.Results.Books)
             {
                 var authors1 = "";
-                foreach(var x in @book.Author)
+                foreach (var x in @book.Author)
                 {
-                    authors1 = authors1 + x;
+                    authors1 = authors1 + x; //concat function
                 }
                 <tr>
-                    <td><img src="@book.BookImage" alt="MyImg"/></td>
+                    <!--Added styling for the image source to have a good user experience. -->
+                    <td><img style='width: 80px; height: 100px;' src="@book.BookImage" alt="MyImg" /></td>
                     <td>@book.Title</td>
                     <td>@authors1</td>
                     <td>@book.Description</td>
                 </tr>
             }
-            
         }
     </table>
 </div>
