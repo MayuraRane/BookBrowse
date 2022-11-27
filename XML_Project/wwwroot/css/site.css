@@ -18,7 +18,7 @@ body {
   
 }
 .desp{
-text-align:left;
+text-align:justify;
 }
 .Welcome {
     padding-top: 20%;
@@ -27,3 +27,4 @@ text-align:left;
 .index-table1{
     font-family:'Arial Rounded MT'
 }
+
