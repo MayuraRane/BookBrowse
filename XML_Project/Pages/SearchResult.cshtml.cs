@@ -60,6 +60,7 @@ namespace XML_Project.Pages
                     
                     ViewData["SearchCompleted"] = SearchCompleted;
                 }
+               
             }
 
    
@@ -80,6 +81,10 @@ namespace XML_Project.Pages
                 string jsonString = readString.Result;
 
                 books = BooksInfo.FromJson(jsonString);
+            }
+            else
+            {
+
             }
             ViewData["BooksInfo"] = books;
             return SearchCompleted;

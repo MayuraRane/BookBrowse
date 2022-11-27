@@ -48,23 +48,34 @@
             <th>Description</th>
         </tr>
         </thead>
-        @{
-            foreach (Item book in books.Items)
-            {
-                var authors1 = "";
-                foreach (var x in @book.VolumeInfo.Authors)
+            @{
+
+                foreach (Item book in books.Items)
                 {
-                    authors1 = authors1 + " " + x;
-                }
-                <tr>
-                    <td><img src="@book.VolumeInfo.ImageLinks.Thumbnail" alt="MyImg"/></td>
-                    <td>@book.VolumeInfo.Title</td>
-                    <td>@authors1</td>
-                    <td class="desp">@book.VolumeInfo.Description</td>
-                </tr>
+                    var authors1 = "";
+                    foreach (var x in @book.VolumeInfo.Authors)
+                    {
+                        authors1 = authors1 + " " + x;
+                    }
+                    try{
+                        
+                            <tr>
+                                <td><img src="@book.VolumeInfo.ImageLinks.Thumbnail" alt="MyImg"/></td>
+                                <td>@book.VolumeInfo.Title</td>
+                                <td>@authors1</td>
+                                <td class="desp">@book.VolumeInfo.Description</td>
+                            </tr>
+
+                    }
+                    catch (NullReferenceException err)
+                    {
+                        <h2>Please try again</h2>
+                    }
             }
 
             }
+            
+            
     </table>
 
 
