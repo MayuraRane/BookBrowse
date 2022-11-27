@@ -2,7 +2,8 @@
 @using MyBooks
 @model XML_Project.Pages.SearchResultModel
 @{
-	ViewData["Title"] = "Books Search";
+    ViewData["Title"] = "Thriller";
+    BooksInfo books = (BooksInfo)ViewData["BooksInfo"];
    
 }
 
@@ -16,26 +17,62 @@
 
     <body id="movieResultBody">
 
-     <!-- Still working on it
-         (searchbooks.Response != "False")
-    
-        <div class="container-fluid movieResult">
-            <div class="row">
-                    <div class="col-4">
-                    
+    <div id="text-center">
+        <h1 class="display-4"> Search Book</h1>
+        <div class="row">
+            <div class="col">
+                <form action="" method="get"
+                      class="form-inline">
+                    <div class="row">
+                        <div class="col-1 pt-2">
+                            <label>Search Title</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Query" class="form-control mr-sm-2 md-2" placeholder="Search..." /><br />
+                        </div>
                     </div>
-                    <div class="col-8">
-                        <h4>searchbooks.Title</h4>
-                        <h6>IMDB Rating</h6>
-                        <p>searchbooks.Author</p>
-                        
-                    </div>
+                    <center><button type="submit" class="btn btn-primary mb-2"> Search </button></center>
+                </form>
             </div>
-        </div> -->
-    }
-    else {
-        <h3>Sorry! We could not find a movie by that title.</h3>
+        </div>
+    </div>
+    @if (Model.SearchCompleted)
+    {
+       
+       <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+        <tr>
+            <th>Image</th>    
+            <th>Title</th>
+            <th>Author</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        @{
+            foreach (Item book in books.Items)
+            {
+                var authors1 = "";
+                foreach (var x in @book.VolumeInfo.Authors)
+                {
+                    authors1 = authors1 + " " + x;
+                }
+                <tr>
+                    <td><img src="@book.VolumeInfo.ImageLinks.Thumbnail" alt="MyImg"/></td>
+                    <td>@book.VolumeInfo.Title</td>
+                    <td>@authors1</td>
+                    <td class="desp">@book.VolumeInfo.Description</td>
+                </tr>
+            }
+
+            }
+    </table>
+
+
     }
 
+
+
+    </div>
+  
     </body>
 </html>
