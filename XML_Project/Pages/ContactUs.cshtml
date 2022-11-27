@@ -44,13 +44,19 @@
 
     <div class="clearfix">
         <div class="box" style="background-color:#bbb">
-            <form method="get">
-                <strong>First Name: </strong><input type=text name="First Name" maxlength=20><br /><br />
-                <strong>Last Name: </strong><input type=text name="Last Name" maxlength=20><br /><br />
-                <strong>Email Address: </strong><input type=text name="Last Name" maxlength=35><br /><br />
+            <form method="get" onsubmit="submitForm()">
+                <strong>First Name: </strong><input type=text name="First Name" maxlength=20 required><br /><br />
+                <strong>Last Name: </strong><input type=text name="Last Name" maxlength=20 required><br /><br />
+                <strong>Email Address: </strong><input type=text name="Last Name" maxlength=35 required><br /><br />
                 <strong>What can we help with you?</strong><br /><textarea name="Inquiry" rows="4" cols="50"></textarea><br />
                 <input type=submit value="Submit" name="Submit">
             </form>
+
+            <script>
+                function submitForm() {
+                  alert("The form was submitted");
+                }
+            </script>
         </div>
         <div class="box" style="background-color:DodgerBlue" 
             <p><h2 style="color:white;">Contact details</h2></p>
