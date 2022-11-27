@@ -19,9 +19,11 @@ namespace XML_Project.Pages
 
         public void OnGet()
         {
-            
-            var task = client.GetAsync($"https://api.nytimes.com/svc/books/v3/lists/current/combined-print-and-e-book-fiction.json?api-key=9HUdSuV0N5BHY93RrWkP48aDrVztk4PL");
-            
+            var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
+            string Bookkey = "9HUdSuV0N5BHY93RrWkP48aDrVztk4PL";
+           
+            var task = client.GetAsync($"https://api.nytimes.com/svc/books/v3/lists/current/combined-print-and-e-book-fiction.json?api-key=" + Bookkey);
+
             HttpResponseMessage result =  task.Result;
             //List<BooksInfo> books = new List<BooksInfo>();
             BestSellers bs_books = new BestSellers();
