@@ -52,24 +52,27 @@
 
                 foreach (Item book in books.Items)
                 {
-                    var authors1 = "";
-                    foreach (var x in @book.VolumeInfo.Authors)
+                    if (@book.VolumeInfo.ImageLinks != null && @book.VolumeInfo.Authors!= null)
                     {
-                        authors1 = authors1 + " " + x;
-                    }
-                    try{
-                        
+                        var authors1 = "";
+                        foreach (var x in @book.VolumeInfo.Authors)
+                        {
+                            authors1 = authors1 + " " + x;
+                        }
+                        try
+                        {
+
                             <tr>
                                 <td><img src="@book.VolumeInfo.ImageLinks.Thumbnail" alt="MyImg"/></td>
                                 <td>@book.VolumeInfo.Title</td>
                                 <td>@authors1</td>
                                 <td class="desp">@book.VolumeInfo.Description</td>
                             </tr>
-
-                    }
-                    catch (NullReferenceException err)
-                    {
-                        <h2>Please try again</h2>
+                        }
+                        catch (Exception err)
+                        {
+                            Console.WriteLine(err);
+                        }
                     }
             }
 
