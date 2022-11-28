@@ -21,13 +21,13 @@ namespace BookBrowse.Pages
             if (result.IsSuccessStatusCode)
             {
                 Task<String> readString = result.Content.ReadAsStringAsync();
-                string mealJson = readString.Result;
+                string BookJson = readString.Result;
 
-                if (string.IsNullOrEmpty(mealJson))
+                if (string.IsNullOrEmpty(BookJson))
                 {
                     return null;
                 }
-                T movie = JsonConvert.DeserializeObject<T>(mealJson, BookBrowse.Converter.Settings); ;
+                T movie = JsonConvert.DeserializeObject<T>(BookJson, BookBrowse.Converter.Settings); ;
                 return movie;
             }
             return null;
