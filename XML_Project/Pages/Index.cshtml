@@ -3,6 +3,7 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    string errorMessage = (String)ViewData["ErrorMessage"];
     BestSellers books = (BestSellers)ViewData["BestSellers"];
     
 }
@@ -38,8 +39,10 @@
 </div>
 
 
-
 <div class="text-center">
+@if (errorMessage == null)
+{
+
     <div class="container">
 
         <div class="row">
@@ -79,21 +82,27 @@
         @{
             foreach (Book book in books.Results.Books)
             {
-                var authors1 = "";
-                foreach(var x in @book.Author)
+                var allAuthors = "";
+                foreach(var author in @book.Author)
                 {
-                    authors1 = authors1 + x;
+                    allAuthors = allAuthors + author;
                 }
                 <tr>
                     <td><img src="@book.BookImage" alt="MyImg"/></td>
                     <td>@book.Title</td>
-                    <td>@authors1</td>
+                    <td>@allAuthors</td>
                     <td>@book.Description</td>
                 </tr>
             }
             
         }
     </table>
+
+}
+@if (errorMessage == null)
+{
+    <h4>@errorMessage</h4>
+}
 </div>
 
 
