@@ -54,7 +54,7 @@ text-align:justify;
     color: #06253E;
 }
 
-..card-body {
+.card-body {
     display: flex;
     flex-direction: column;
 }
@@ -69,3 +69,97 @@ text-align:justify;
 .cardcont{
     padding-bottom:2%;
 }
+
+.contactus h3 {
+    font-size: 50px;
+}
+
+
+.contactus h2 {
+    color: white;
+}
+
+.contactus * {
+    box-sizing: border-box;
+}
+
+.contactus .box {
+    float: left;
+    width: 50%;
+    padding: 50px;
+    height: 400px;
+}
+
+.contactus .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.contactus textarea {
+    resize: none;
+}
+
+.AboutUs body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.AboutUs html {
+    box-sizing: border-box;
+}
+
+.AboutUs *, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.AboutUs .column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+
+.AboutUs .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+}
+
+.AboutUs .about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+}
+
+.AboutUs .container {
+    padding: 0 16px;
+}
+
+.AboutUs .container::after, .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+.AboutUs .title {
+    color: grey;
+}
+
+.AboutUs .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.AboutUs .button:hover {
+        background-color: #555;
+    }
+
+

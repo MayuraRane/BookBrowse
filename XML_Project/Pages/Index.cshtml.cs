@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MyBooksBestSellers;
@@ -20,6 +21,7 @@ namespace XML_Project.Pages
         public void OnGet()
         {
             var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
+
             string Bookkey = "9HUdSuV0N5BHY93RrWkP48aDrVztk4PL";
            
             var task = client.GetAsync($"https://api.nytimes.com/svc/books/v3/lists/current/combined-print-and-e-book-fiction.json?api-key=" + Bookkey);
@@ -35,6 +37,8 @@ namespace XML_Project.Pages
                 bs_books = BestSellers.FromJson(jsonString);
             }
             ViewData["BestSellers"] = bs_books;
+
+
 
         }
     }
