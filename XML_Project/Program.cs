@@ -28,7 +28,7 @@ app.MapRazorPages();
 
 app.MapGet("/BookBrowse/v1", async (string? BookName) =>
 {
-    SearchResultModel index = new SearchResultModel();
+    APILink index = new APILink();
     string response = "";
 
     ApiResponse apiResponse = await index.GetApiResponseAsync(BookName);

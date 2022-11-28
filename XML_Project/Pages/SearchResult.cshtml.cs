@@ -20,30 +20,9 @@ namespace XML_Project.Pages
 
 
 
-       // public SearchResultModel(ILogger<IndexModel> logger)
-        //{
-        //    _logger = logger;
-        //}
-
-        public SearchResultModel()
+        public SearchResultModel(ILogger<IndexModel> logger)
         {
-
-        }
-
-        public async void OnGetAsync(string query)
-        {
-            BooksInfo books = await GetBook(query);
-            ViewData["BooksInfo"] = books;
-            Query = query;
-        }
-
-
-
-        public async Task<ApiResponse> GetApiResponseAsync(string query)
-        {
-            ApiResponse apiResponse = new ApiResponse();
-            apiResponse.booksInfo = await GetBook(query);
-            return apiResponse;
+            _logger = logger;
         }
 
         private T? GetFromURL<T>(string URL) where T : class
@@ -77,20 +56,20 @@ namespace XML_Project.Pages
                 if (query != null)
                 {
                 
-                    SearchCompleted = true;
+                    SearchCompleted = getBook(query);
                     
                     ViewData["SearchCompleted"] = SearchCompleted;
                 }
                
             }
 
+   
 
 
 
-
-        private async Task<BooksInfo> GetBook(string query)
-        {
-            var task = _httpClient.GetAsync($"https://www.googleapis.com/books/v1/volumes?q=" + query);
+    private bool getBook(string query)
+    {
+            var task = _httpClient.GetAsync($"https://www.googleapis.com/books/v1/volumes?q="+query);
 
             HttpResponseMessage result = task.Result;
             //List<BooksInfo> books = new List<BooksInfo>();
@@ -103,13 +82,10 @@ namespace XML_Project.Pages
 
                 books = BooksInfo.FromJson(jsonString);
             }
-            else
-            {
-
-            }
-            //ViewData["BooksInfo"] = books;
-            return books;
+           
+            ViewData["BooksInfo"] = books;
+            return SearchCompleted;
         }
-    }
+}
 
 }
