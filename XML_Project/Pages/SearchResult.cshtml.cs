@@ -56,16 +56,16 @@ namespace XML_Project.Pages
             if (result.IsSuccessStatusCode)
             {
                 Task<String> readString = result.Content.ReadAsStringAsync();
-                string mealJson = readString.Result;
+                string bookJson = readString.Result;
 
 
 
-                if (string.IsNullOrEmpty(mealJson))
+                if (string.IsNullOrEmpty(bookJson))
                 {
                     return null;
                 }
-                T meal = JsonConvert.DeserializeObject<T>(mealJson, MyBooks.Converter.Settings); ;
-                return meal;
+                T booktitle = JsonConvert.DeserializeObject<T>(bookJson, MyBooks.Converter.Settings); ;
+                return booktitle;
             }
             return null;
         }
