@@ -57,14 +57,11 @@ namespace MyBooks
         [JsonProperty("country")]
         public Country Country { get; set; }
 
-        [JsonProperty("viewability")]
-        public Viewability Viewability { get; set; }
-
         [JsonProperty("embeddable")]
-        public bool Embeddable { get; set; }
+        public string Embeddable { get; set; }
 
         [JsonProperty("publicDomain")]
-        public bool PublicDomain { get; set; }
+        public string PublicDomain { get; set; }
 
         [JsonProperty("textToSpeechPermission")]
         public TextToSpeechPermission TextToSpeechPermission { get; set; }
@@ -78,8 +75,7 @@ namespace MyBooks
         [JsonProperty("webReaderLink")]
         public Uri WebReaderLink { get; set; }
 
-        [JsonProperty("accessViewStatus")]
-        public AccessViewStatus AccessViewStatus { get; set; }
+  
 
         [JsonProperty("quoteSharingAllowed")]
         public bool QuoteSharingAllowed { get; set; }
@@ -105,8 +101,6 @@ namespace MyBooks
         [JsonProperty("country")]
         public Country Country { get; set; }
 
-        [JsonProperty("saleability")]
-        public Saleability Saleability { get; set; }
 
         [JsonProperty("isEbook")]
         public bool IsEbook { get; set; }
@@ -138,8 +132,6 @@ namespace MyBooks
         [JsonProperty("pageCount")]
         public long PageCount { get; set; }
 
-        [JsonProperty("printType")]
-        public PrintType PrintType { get; set; }
 
         [JsonProperty("categories")]
         public List<string> Categories { get; set; }
@@ -165,8 +157,7 @@ namespace MyBooks
         [JsonProperty("imageLinks")]
         public ImageLinks ImageLinks { get; set; }
 
-        [JsonProperty("language")]
-        public Language Language { get; set; }
+       
 
         [JsonProperty("previewLink")]
         public Uri PreviewLink { get; set; }
@@ -223,17 +214,17 @@ namespace MyBooks
 
     public enum TextToSpeechPermission { Allowed, AllowedForAccessibility };
 
-    public enum Viewability { NoPages, Partial };
+    //public enum Viewability { NoPages, Partial };
 
     public enum Kind { BooksVolume };
 
-    public enum Saleability { NotForSale, ForSale };
+    //public enum Saleability { NotForSale, ForSale };
 
     //public enum Category { Art, AdventureFiction, Fiction, JuvenileFiction, Drama, Bedandbreakfastaccommodations, YoungAdultFiction, Cooking, Computers, BodyMindSpirit, BusinessEconomics, FamilyRelationships, BiographyAutobiography, Gardening, SocialScience };
 
     public enum TypeEnum { Isbn10, Isbn13, Other };
 
-    public enum Language { En };
+    //public enum Language { En };
 
     public enum MaturityRating { NotMature };
 
@@ -269,12 +260,12 @@ namespace MyBooks
                 AccessViewStatusConverter.Singleton,
                 CountryConverter.Singleton,
                 TextToSpeechPermissionConverter.Singleton,
-                ViewabilityConverter.Singleton,
+                //ViewabilityConverter.Singleton,
                 KindConverter.Singleton,
-                SaleabilityConverter.Singleton,
+                //SaleabilityConverter.Singleton,
                 //CategoryConverter.Singleton,
                 TypeEnumConverter.Singleton,
-                LanguageConverter.Singleton,
+                //LanguageConverter.Singleton,
                 MaturityRatingConverter.Singleton,
                 PrintTypeConverter.Singleton,
                 PublishedDateConverter.Singleton,
@@ -399,47 +390,7 @@ namespace MyBooks
         public static readonly TextToSpeechPermissionConverter Singleton = new TextToSpeechPermissionConverter();
     }
 
-    internal class ViewabilityConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(Viewability) || t == typeof(Viewability?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            switch (value)
-            {
-                case "NO_PAGES":
-                    return Viewability.NoPages;
-                case "PARTIAL":
-                    return Viewability.Partial;
-            }
-            throw new Exception("Cannot unmarshal type Viewability");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (Viewability)untypedValue;
-            switch (value)
-            {
-                case Viewability.NoPages:
-                    serializer.Serialize(writer, "NO_PAGES");
-                    return;
-                case Viewability.Partial:
-                    serializer.Serialize(writer, "PARTIAL");
-                    return;
-            }
-            throw new Exception("Cannot marshal type Viewability");
-        }
-
-        public static readonly ViewabilityConverter Singleton = new ViewabilityConverter();
-    }
-
+    
     internal class KindConverter : JsonConverter
     {
         public override bool CanConvert(Type t) => t == typeof(Kind) || t == typeof(Kind?);
@@ -473,51 +424,6 @@ namespace MyBooks
 
         public static readonly KindConverter Singleton = new KindConverter();
     }
-
-    internal class SaleabilityConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(Saleability) || t == typeof(Saleability?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            if (value == "NOT_FOR_SALE")
-            {
-                return Saleability.NotForSale;
-            }
-            else if (value == "FOR_SALE")
-            {
-                return Saleability.ForSale;
-            }
-            throw new Exception("Cannot unmarshal type Saleability");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (Saleability)untypedValue;
-            if (value == Saleability.NotForSale)
-            {
-                serializer.Serialize(writer, "NOT_FOR_SALE");
-                return;
-            }
-            else if (value == Saleability.ForSale)
-            {
-                serializer.Serialize(writer, "FOR_SALE");
-                return;
-            }
-            throw new Exception("Cannot marshal type Saleability");
-        }
-
-        public static readonly SaleabilityConverter Singleton = new SaleabilityConverter();
-    }
-
-    
         
     internal class TypeEnumConverter : JsonConverter
     {
@@ -565,40 +471,7 @@ namespace MyBooks
         public static readonly TypeEnumConverter Singleton = new TypeEnumConverter();
     }
 
-    internal class LanguageConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(Language) || t == typeof(Language?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            if (value == "en")
-            {
-                return Language.En;
-            }
-            throw new Exception("Cannot unmarshal type Language");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (Language)untypedValue;
-            if (value == Language.En)
-            {
-                serializer.Serialize(writer, "en");
-                return;
-            }
-            throw new Exception("Cannot marshal type Language");
-        }
-
-        public static readonly LanguageConverter Singleton = new LanguageConverter();
-    }
-
+    
     internal class MaturityRatingConverter : JsonConverter
     {
         public override bool CanConvert(Type t) => t == typeof(MaturityRating) || t == typeof(MaturityRating?);
