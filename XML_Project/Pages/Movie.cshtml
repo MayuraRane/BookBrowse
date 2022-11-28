@@ -1,0 +1,35 @@
+﻿@page
+@using BookBrowse.Pages
+@model BookBrowse.Pages.MovieModel
+@{
+    List<MovieResult> movies = (List<MovieResult>)ViewData["Movies"];
+    
+}
+
+@if (Model.DisplaySearch && movies != null)
+{
+
+    <h2><center>Movie Combo Books</center> </h2> <br />
+    
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+        @{
+                
+                foreach (var movie in movies)
+            {
+                    
+                        <div class="card">
+                       
+                            <img class="card-img-top w-80 d-block fit-cover" style="height:60%;" src="https://image.tmdb.org/t/p/w500/@movie.PosterPath" alt="movieimage"/>
+                            <div class="card-body p-4"> 
+                            <h4 class="card-title"><a> @movie.Title</a></h4>
+                            <p class="card-text">@movie.Overview</p>
+                            </div>
+                       
+                        </div>
+                   
+            }
+        }
+        </div>
+    
+    }
+
