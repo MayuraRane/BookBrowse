@@ -20,9 +20,30 @@ namespace XML_Project.Pages
 
 
 
-        public SearchResultModel(ILogger<IndexModel> logger)
+        //public SearchResultModel(ILogger<IndexModel> logger)
+        //{
+           // _logger = logger;
+        //}
+
+        public SearchResultModel()
         {
-            _logger = logger;
+
+        }
+
+        public async void OnGetAsync(string query)
+        {
+            BooksInfo books = await GetBook(query);
+            ViewData["BooksInfo"] = books;
+            Query = query;
+        }
+
+
+
+        public async Task<ApiResponse> GetApiResponseAsync(string query)
+        {
+            ApiResponse apiResponse = new ApiResponse();
+            apiResponse.booksInfo = await GetBook(query);
+            return apiResponse;
         }
 
         private T? GetFromURL<T>(string URL) where T : class
@@ -48,7 +69,7 @@ namespace XML_Project.Pages
             }
             return null;
         }
-            public void OnGet(string type, string query)
+            public async void GetBooksInfo(string type, string query)
             {
             SearchCompleted = false;
             Query = query;
@@ -56,7 +77,7 @@ namespace XML_Project.Pages
                 if (query != null)
                 {
                 
-                    SearchCompleted = getBook(query);
+                    SearchCompleted = true;
                     
                     ViewData["SearchCompleted"] = SearchCompleted;
                 }
@@ -67,7 +88,7 @@ namespace XML_Project.Pages
 
 
 
-    private bool getBook(string query)
+    private async Task<BooksInfo> GetBook(string query)
     {
             var task = _httpClient.GetAsync($"https://www.googleapis.com/books/v1/volumes?q="+query);
 
@@ -86,8 +107,8 @@ namespace XML_Project.Pages
             {
 
             }
-            ViewData["BooksInfo"] = books;
-            return SearchCompleted;
+            //ViewData["BooksInfo"] = books;
+            return books;
         }
 }
 

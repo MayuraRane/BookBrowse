@@ -1,3 +1,7 @@
+using Newtonsoft.Json;
+using XML_Project;
+using XML_Project.Pages;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,5 +25,22 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.MapGet("/BookBrowse/v1", async (string? BookName) =>
+{
+    SearchResultModel index = new SearchResultModel();
+    string response = "";
+
+    ApiResponse apiResponse = await index.GetApiResponseAsync(BookName);
+    response = JsonConvert.SerializeObject(apiResponse, Formatting.Indented, new JsonSerializerSettings
+    {
+        NullValueHandling = NullValueHandling.Ignore,
+        DefaultValueHandling = DefaultValueHandling.Ignore
+    });
+
+    return response;
+
+})
+.WithName("BookBrowse");
 
 app.Run();
