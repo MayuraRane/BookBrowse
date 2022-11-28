@@ -24,14 +24,15 @@
                 <form action="" method="get"
                       class="form-inline">
                     <div class="row">
-                        <div class="col-1 pt-2">
-                            <label>Search Title</label>
-                        </div>
+                       
                         <div class="col-8">
-                            <input asp-for="Query" class="form-control mr-sm-2 md-2" placeholder="Search..." /><br />
+                            <input asp-for="Query" class="form-control mr-sm-2 md-2" placeholder="Search Title / Author / ISBN" /><br />
+                        </div>
+                         <div class="col-1">
+                            <center><button type="submit" class="btn btn-primary mb-2"> Search </button></center>
                         </div>
                     </div>
-                    <center><button type="submit" class="btn btn-primary mb-2"> Search </button></center>
+                    
                 </form>
             </div>
         </div>
